@@ -1,14 +1,6 @@
 var cuid = require('cuid');
 
-var mongoose = require('mongoose');
-
-
-const UserSchema = mongoose.Schema({
-    name: String,
-    id : Number
-});
-
-const UserModel = mongoose.model('user', UserSchema);
+const UserModel = require('./user.model')
 
 
 // Obtener todos los usuarios
