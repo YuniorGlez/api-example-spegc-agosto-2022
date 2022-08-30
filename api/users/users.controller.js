@@ -12,9 +12,6 @@ function getAll(req, res) {
         .catch(users => {
             res.send(users)
         })
-
-
-    UserModel.findOneAndDelete
 }
 
 // Obtener un usuario por su ID
