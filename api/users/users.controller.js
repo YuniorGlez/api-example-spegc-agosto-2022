@@ -3,7 +3,11 @@ var cuid = require('cuid');
 const UserModel = require('./user.model')
 
 
-// Obtener todos los usuarios
+/**
+ * Función para enlazar con el endpoint GET / con la intencion de obtener a todos los de la colección
+ * @param {*} req Parámetro de entrada referente a la Request
+ * @param {*} res Parámetro de entrada referente a la Response. Sirve para contestar al cliente
+ */
 function getAll(req, res) {
     UserModel.find({})
         .then(users => {
@@ -12,12 +16,9 @@ function getAll(req, res) {
         .catch(users => {
             res.send(users)
         })
-
-
-    UserModel.findOneAndDelete
 }
 
-// Obtener un usuario por su ID
+/** */
 function getOneById(req, res) {
     // UserModel.findOne({ id : req.params.id })
     //     .then(user => {
@@ -44,11 +45,11 @@ function create(req, res) {
         })
         .catch(err => {
             return res.status(500).send(err)
-
         })
 }
 
 function removeOneById(req, res) {
+    // UserModel.findByIdAndDelete(req.params.id)
     UserModel.findByIdAndRemove(req.params.id)
         .then(deleted => {
             res.send(deleted)

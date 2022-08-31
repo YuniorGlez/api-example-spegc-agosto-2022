@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 
 const CarsSchema = mongoose.Schema({
-    name: String,
-    id: Number
+    title: String,
+    owner: String,
+    createdAt : Number
 });
 
 const CarModel = mongoose.model('car', CarsSchema);

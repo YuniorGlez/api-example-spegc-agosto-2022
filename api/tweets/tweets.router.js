@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const controller = require('./cars.controller');
+const controller = require('./tweets.controller');
 
 router.get('/', controller.getAll)
 router.get('/:id', controller.getOneById)
