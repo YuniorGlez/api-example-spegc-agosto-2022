@@ -9,13 +9,25 @@ const UserModel = require('./user.model')
  * @param {*} res Parámetro de entrada referente a la Response. Sirve para contestar al cliente
  */
 function getAll(req, res) {
-    UserModel.find({})
+    const page = req.query.page;
+    if (typeof page === 'undefined') {
+
+        UserModel.find({}, {}, { limit: 3 })
+            .then(users => {
+                res.send(users)
+            })
+            .catch(users => {
+                res.send(users)
+            })
+    } else {
+        UserModel.find({}, {}, { limit: 3 , skip : +page * 3 })
         .then(users => {
             res.send(users)
         })
         .catch(users => {
             res.send(users)
         })
+    }
 }
 
 /** */
