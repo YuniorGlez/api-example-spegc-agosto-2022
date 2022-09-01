@@ -30,7 +30,7 @@ function getAll(req, res) {
     }
 }
 
-/** */
+// Obtener un usuario por su ID
 function getOneById(req, res) {
     // UserModel.findOne({ id : req.params.id })
     //     .then(user => {
