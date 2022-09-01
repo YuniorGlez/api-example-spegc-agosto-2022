@@ -40,6 +40,7 @@ function getOneById(req, res) {
     //         return res.status(500).send(err)
     //     })
     UserModel.findById(req.params.id)
+        .populate('tweetsIDs')
         .then(user => {
             return res.send(user)
         })
@@ -75,7 +76,7 @@ function removeOneById(req, res) {
 }
 
 function updateOneById(req, res) {
-    UserModel.findByIdAndUpdate(req.params.id, req.body, { new : true , runValidators : true } )
+    UserModel.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
         .then(updated => {
             res.send(updated)
         })
