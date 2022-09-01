@@ -44,7 +44,10 @@ function create(req, res) {
             return res.send(userCreated)
         })
         .catch(err => {
-            return res.status(500).send(err)
+            // o aquí yo mismo formateo mejor el error
+            // o se lo mando como hago aquí al frontend
+            // y que se lo coma el
+            return res.status(400).send(err)
         })
 }
 
